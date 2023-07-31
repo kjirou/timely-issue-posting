@@ -1,0 +1,26 @@
+name: post-issue
+description: Post GitHub Issue
+inputs:
+  template-id:
+    default: ""
+    description: ""
+    required: true
+  # TODO: テンプレートの Frontmatter を解釈させたい
+  title:
+    default: ""
+    description: ""
+    required: true
+runs:
+  using: composite
+  steps:
+    - uses: actions/github-script@v6
+      with:
+        script: |
+          const title = 'Title dayo';
+          const body = 'Body dayo';
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: title,
+            body: body,
+            labels: []
