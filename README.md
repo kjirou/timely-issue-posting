@@ -1,3 +1,3 @@
 # timly-issue-posting
 
-A sample GitHub Workflow to post issues timly
+A sample GitHub Workflow to post issues timely
