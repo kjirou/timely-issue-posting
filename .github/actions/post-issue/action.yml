@@ -24,7 +24,7 @@ runs:
           let body = 'Body dayo';
           console.log(process.env.TEMPLATE_ID);
           if (process.env.TEMPLATE_ID !== '') {
-            body = fs.readFileSync(path.join(__dirname, '.github/actions/post-issues/templates', `${ process.env.TEMPLATE_ID }.md`))
+            body = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
             .toString();
           }
           github.rest.issues.create({
