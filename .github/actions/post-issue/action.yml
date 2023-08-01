@@ -15,7 +15,7 @@ runs:
   steps:
     - uses: juliangruber/read-file-action@v1
       with:
-        path: .github/actions/post-issue/templates/bar.md
+        path: ./.github/actions/post-issue/templates/bar.md
     - uses: actions/github-script@v6
       env:
         BAR: ${{ steps.package.outputs.content }}
