@@ -10,8 +10,6 @@ inputs:
     default: ""
     description: ""
     required: true
-permissions:
-  issues: write
 runs:
   using: composite
   steps:
