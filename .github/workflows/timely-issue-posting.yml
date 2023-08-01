@@ -1,12 +1,12 @@
 on:
   schedule:
-    - cron: '45 2 0 0 0'
+    - cron: '45 2 * * *'
   workflow_dispatch:
 jobs:
   create:
     runs-on: ubuntu-latest
     steps:
-      # - if: github.event.schedule != '45 2 0 0 0'
+      # - if: github.event.schedule != '45 2 * * *'
       #   uses: ./.github/actions/post-issue
       #   with:
       #     template-id: foo
