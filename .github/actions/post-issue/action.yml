@@ -13,20 +13,24 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: juliangruber/read-file-action@v1
+      with:
+        path: .github/actions/post-issue/templates/bar.md
     - uses: actions/github-script@v6
       env:
+        BAR: ${{ steps.package.outputs.content }}
         TEMPLATE_ID: ${{ inputs.template-id }}
       with:
         script: |
           const fs = require('fs');
           const path = require('path');
           const title = 'Title is ${{ inputs.title }}';
-          let body = 'Body dayo';
-          console.log(process.env.TEMPLATE_ID);
-          if (process.env.TEMPLATE_ID !== '') {
-            body = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
-            .toString();
-          }
+          let body = process.env.BAR;
+          console.log(process.env.BAR);
+          // if (process.env.TEMPLATE_ID !== '') {
+          //   body = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
+          //   .toString();
+          // }
           github.rest.issues.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
