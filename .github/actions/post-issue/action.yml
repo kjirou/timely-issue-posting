@@ -16,7 +16,7 @@ runs:
     - uses: actions/github-script@v6
       with:
         script: |
-          const title = 'Title dayo';
+          const title = 'Title is ${{ inputs.title }}';
           const body = 'Body dayo';
           github.rest.issues.create({
             owner: context.repo.owner,
