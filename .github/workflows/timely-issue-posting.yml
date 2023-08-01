@@ -3,7 +3,7 @@ on:
     - cron: '45 2 * * *'
   workflow_dispatch:
 jobs:
-  create:
+  post-issues:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
