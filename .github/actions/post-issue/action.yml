@@ -13,13 +13,13 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: juliangruber/read-file-action@v1
+    - id: bar_content
+      uses: juliangruber/read-file-action@v1
       with:
         path: ./.github/actions/post-issue/templates/bar.md
-    - run: echo "${{ steps.package.outputs.content }}"
     - uses: actions/github-script@v6
       env:
-        BAR: ${{ steps.package.outputs.content }}
+        BAR: ${{ steps.bar_content.outputs.content }}
         TEMPLATE_ID: ${{ inputs.template-id }}
       with:
         script: |
