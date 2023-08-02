@@ -2845,7 +2845,7 @@ const content = core.getInput("content") || "";
     markdown: "## MK\n\nMarkdown!",
   };
   core.setOutput('parsed', parsed);
-  core.setOutput('title', parsed.title);
+  core.setOutput('title', parsed.frontmatter.title);
   // try {
   // } catch (error) {
   //   core.setFailed(error.message);
