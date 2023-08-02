@@ -5,10 +5,10 @@ inputs:
     default: ""
     description: ""
     required: true
-  title:
-    default: ""
-    description: ""
-    required: false
+  # title:
+  #   default: ""
+  #   description: ""
+  #   required: false
 runs:
   using: composite
   steps:
