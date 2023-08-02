@@ -1,12 +1,12 @@
 const parse = (frontMatterEnabledMarkdown) => {
-  const frontMatterPattern = /^---\ntitle: *(.*?)\n---\n(.+)$/;
+  const frontMatterPattern = /^---\ntitle: *([^\n]*?)\n---\n/;
   if (!frontMatterPattern.test(frontMatterEnabledMarkdown)) {
     return {
-      title: 'title missing',
+      title: '',
       markdown: frontMatterEnabledMarkdown,
     }
   }
-  const [, rawTitle, markdown] = frontMatterEnabledMarkdown.match(frontMatterPattern);
+  const [, rawTitle] = frontMatterEnabledMarkdown.match(frontMatterPattern);
   const singleQuotesPattern = /^'(.*)'$/;
   const doubleQuotesPattern = /^"(.*)"$/;
   let title = rawTitle;
@@ -17,7 +17,7 @@ const parse = (frontMatterEnabledMarkdown) => {
   }
   return {
     title,
-    markdown,
+    markdown: frontMatterEnabledMarkdown.replace(frontMatterPattern, ''),
   }
 };
 

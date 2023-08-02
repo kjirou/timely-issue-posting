@@ -1,5 +1,5 @@
 ---
-title: Foo title in frontMatter
+title: "Foo tit\"le in fro\"ntMatter"
 ---
 ## foo
 
