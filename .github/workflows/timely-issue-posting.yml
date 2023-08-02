@@ -14,4 +14,4 @@ jobs:
       - uses: ./.github/actions/post-issue
         with:
           template-id: foo
-          title: TITLE DAYO
+          # title: TITLE DAYO
