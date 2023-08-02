@@ -7,7 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - id: frontmatter
+        uses: ./.github/actions/parse-frontmatter
+        with:
+          content: Hey
       - uses: ./.github/actions/post-issue
         with:
           template-id: foo
-          title: Title defined in workflow
+          title: ${{ steps.frontmatter.outputs.title }}
