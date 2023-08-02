@@ -25,8 +25,8 @@ runs:
           const fs = require('fs');
           const path = require('path');
           const usoFrontMatterParser = require('.github/actions/post-issue/uso-front-matter-parser');
-          let title = '';
-          let body = '';
+          let title = 'default title';
+          let body = 'default body';
           if (process.env.TEMPLATE_ID !== '') {
             //const template = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
             //  .toString();
