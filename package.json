@@ -17,5 +17,8 @@
     "url": "https://github.com/kjirou/timely-issue-posting/issues"
   },
   "homepage": "https://github.com/kjirou/timely-issue-posting#readme",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@actions/core": "^1.10.0"
+  }
 }
