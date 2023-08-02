@@ -25,7 +25,7 @@ runs:
         script: |
           const fs = require('fs');
           const path = require('path');
-          const usoFrontMatterParser = require('./uso-front-matter-parser');
+          const usoFrontMatterParser = require('.github/actions/post-issue/uso-front-matter-parser');
           let title = '';
           let body = '';
           if (process.env.TEMPLATE_ID !== '') {
