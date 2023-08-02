@@ -2,7 +2,7 @@ const parse = (frontMatterEnabledMarkdown) => {
   const frontMatterPattern = /^---\ntitle: *(.*?)\n---\n(.+)$/;
   if (!frontMatterPattern.test(frontMatterEnabledMarkdown)) {
     return {
-      title: undefined,
+      title: 'title missing',
       markdown: frontMatterEnabledMarkdown,
     }
   }
