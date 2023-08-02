@@ -6,7 +6,9 @@ inputs:
     description: ""
     required: true
   title:
+    default: ""
     description: ""
+    required: false
 runs:
   using: composite
   steps:
