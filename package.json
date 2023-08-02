@@ -1,0 +1,21 @@
+{
+  "name": "timely-issue-posting",
+  "version": "1.0.0",
+  "description": "A sample GitHub Workflow to post issues timely",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjirou/timely-issue-posting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjirou/timely-issue-posting/issues"
+  },
+  "homepage": "https://github.com/kjirou/timely-issue-posting#readme",
+  "private": true
+}
