@@ -4,7 +4,7 @@
   "description": "A sample GitHub Workflow to post issues timely",
   "main": "index.js",
   "scripts": {
-    "build-parse-frontmatter": "ncc build .github/actions/parse-frontmatter/main.js -C -o .github/actions/parse-frontmatter/dist/main.js",
+    "build-parse-frontmatter": "ncc build .github/actions/parse-frontmatter/main.js -C -o .github/actions/parse-frontmatter/dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
