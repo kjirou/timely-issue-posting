@@ -5,11 +5,8 @@ inputs:
     default: ""
     description: ""
     required: true
-  # TODO: テンプレートの Frontmatter を解釈させたい
   title:
-    default: ""
     description: ""
-    required: true
 runs:
   using: composite
   steps:
