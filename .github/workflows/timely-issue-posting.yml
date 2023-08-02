@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - id: frontmatter
-        uses: ./.github/actions/parse-frontmatter
-        with:
-          content: Hey
+      # - id: frontmatter
+      #   uses: ./.github/actions/parse-frontmatter
+      #   with:
+      #     content: Hey
       - uses: ./.github/actions/post-issue
         with:
           template-id: foo
-          title: ${{ steps.frontmatter.outputs.title }}
+          title: TITLE DAYO

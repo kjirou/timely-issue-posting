@@ -13,25 +13,28 @@ inputs:
 runs:
   using: composite
   steps:
-    - id: bar_content
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./.github/actions/post-issue/templates/bar.md
+    # - id: bar_content
+    #   uses: juliangruber/read-file-action@v1
+    #   with:
+    #     path: ./.github/actions/post-issue/templates/bar.md
     - uses: actions/github-script@v6
       env:
-        BAR: ${{ steps.bar_content.outputs.content }}
+        # BAR: ${{ steps.bar_content.outputs.content }}
         TEMPLATE_ID: ${{ inputs.template-id }}
       with:
         script: |
           const fs = require('fs');
           const path = require('path');
-          const title = 'Title is ${{ inputs.title }}';
-          let body = process.env.BAR;
-          console.log(process.env.BAR);
-          // if (process.env.TEMPLATE_ID !== '') {
-          //   body = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
-          //   .toString();
-          // }
+          const usoFrontMatterParser = require('uso-front-matter-parser');
+          let title = '';
+          let body = '';
+          if (process.env.TEMPLATE_ID !== '') {
+            const template = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
+              .toString();
+            const parsed = usoFrontMatterParser.parse(template);
+            title = parsed.title;
+            body = parsed.markdown;
+          }
           github.rest.issues.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
