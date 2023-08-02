@@ -4,4 +4,4 @@ inputs:
     required: true
 runs:
   using: node16
-  main: ./.github/actions/parse-frontmatter/main.js
+  main: "./.github/actions/parse-frontmatter/main.js"
