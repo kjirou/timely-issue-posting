@@ -28,11 +28,17 @@ runs:
           let title = 'default title';
           let body = 'default body';
           if (process.env.TEMPLATE_ID !== '') {
-            //const template = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
-            //  .toString();
-            //const parsed = usoFrontMatterParser.parse(template);
-            //title = parsed.title;
-            //body = parsed.markdown;
+            const template = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
+              .toString();
+            const parsed = usoFrontMatterParser.parse(template);
+            title = parsed.title || '';
+            body = parsed.markdown;
+          }
+          if (!title) {
+            throw new Error('title is invalid');
+          }
+          if (!body) {
+            throw new Error('body is invalid');
           }
           github.rest.issues.create({
             owner: context.repo.owner,
