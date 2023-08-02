@@ -28,11 +28,11 @@ runs:
           let title = '';
           let body = '';
           if (process.env.TEMPLATE_ID !== '') {
-            const template = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
-              .toString();
-            const parsed = usoFrontMatterParser.parse(template);
-            title = parsed.title;
-            body = parsed.markdown;
+            //const template = fs.readFileSync(path.join('.github/actions/post-issue/templates', `${ process.env.TEMPLATE_ID }.md`))
+            //  .toString();
+            //const parsed = usoFrontMatterParser.parse(template);
+            //title = parsed.title;
+            //body = parsed.markdown;
           }
           github.rest.issues.create({
             owner: context.repo.owner,
