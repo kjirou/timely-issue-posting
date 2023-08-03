@@ -1,0 +1,33 @@
+name: post-issue-2
+description: Post GitHub Issue ver.2
+inputs:
+  template-id:
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: read-template
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./.github/actions/post-issue-2/templates/${{ inputs.template-id }}.md
+    - id: parse-front-matter
+      uses: kjirou/parse-front-matter-action@v1
+      with:
+        path: ${{ steps.ead-template.outputs.content }}
+    - uses: actions/github-script@v6
+      env:
+        BODY: ${{ steps.parse-front-matter.outputs.body }}
+        FRONT_MATTER_AS_JSON: ${{ steps.parse-front-matter.outputs.frontMatterAsJson }}
+      with:
+        script: |
+          const frontMatter = JSON.parse(process.env.FRONT_MATTER_AS_JSON);
+          const title = frontMatter.title || 'No title';
+          const body = process.env.BODY.trim();
+          const labels = Array.isArray(frontMatter.labels) ? frontMatter.labels : [];
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title,
+            body,
+            labels,
+          });
