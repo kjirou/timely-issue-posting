@@ -13,7 +13,7 @@ runs:
     - id: parse-front-matter
       uses: kjirou/parse-front-matter-action@v1
       with:
-        path: ${{ steps.ead-template.outputs.content }}
+        content: ${{ steps.ead-template.outputs.content }}
     - uses: actions/github-script@v6
       env:
         BODY: ${{ steps.parse-front-matter.outputs.body }}
